@@ -1,0 +1,24 @@
+<main class="contact-page">
+  <a href="/contact/add" class="addButton"><ion-icon name="add-outline"></ion-icon> Tambah Contact</a>
+  <table>
+    <tr>
+      <th>Nama</th>
+      <th>No.Handphone</th>
+      <th>Email</th>
+    </tr>
+    <% contacts.forEach(contact => { %>
+    <tr>    
+      <td><%= contact.nama %></td>
+      <td><%= contact.nohp %></td>
+      <td><%= contact.email %> </td>
+      <td><a href="/contact/edit/<%=contact.id%>" class="edit"><ion-icon name="pencil-outline"></ion-icon></a></td>
+       <td>
+        <form action="/contact?_method=DELETE" method="post">
+        <input type="hidden" name="_id" value="<%= contact.id %>">
+        <button type="submit" class="hapus" onclick="return confirm('apakah anda yakin?...')"><ion-icon name="trash-outline"></ion-icon></button>
+       </form></td>
+    </tr>
+    <% }) %>
+
+  </table>
+</main>

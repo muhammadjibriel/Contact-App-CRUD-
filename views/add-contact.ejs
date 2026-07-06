@@ -1,0 +1,25 @@
+<form class="add-contact" method="post" action="/contact">
+  <h1>Tambah Contact</h1>
+  <% if (typeof errors != 'undefined') { %>
+   <div role="alert" class="alert">
+    <ul>
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %> </li>
+      <% }) %>
+    </ul>
+   </div>
+  <% } %>
+  <label for="nama">Nama</label>
+  <input type="text" placeholder="john albert" id="nama" name="nama" required />
+  <label for="nohp">Nomor HP</label>
+  <input type="tel" placeholder="08xxxxxxx" id="nohp" name="nohp" required />
+  <label for="email">Email</label>
+  <input
+    type="email"
+    placeholder="Test@gmail.com"
+    id="email"
+    name="email"
+    required
+  />
+  <input type="submit" value="Tambah Contact!" id="submit" />
+</form>
